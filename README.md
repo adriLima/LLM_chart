@@ -16,7 +16,7 @@ node screenshot.js "https://example.com" "Your prompt here"
 
 ## git commands
 ```bash
-# stage the changes (je ne sais pas)
+# stage the changes (nécessaire pour pousser des fichiers indépendaments dans le commit)
 git add .
 # Validate the new updates in the app folder
 git commit -m "Test push new script"
@@ -24,6 +24,8 @@ git commit -m "Test push new script"
 git push
 # pull repo if updates is necessary
 git pull origin master
+# Status (identifier l'état du repo comparé au local)
+git status
 ```
 
 ## License
