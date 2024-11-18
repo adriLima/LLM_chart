@@ -16,10 +16,14 @@ node screenshot.js "https://example.com" "Your prompt here"
 
 ## git commands
 ```bash
+# stage the changes (je ne sais pas)
+git add .
 # Validate the new updates in the app folder
 git commit -m "Test push new script"
 # push from dev to git
 git push
+# pull repo if updates is necessary
+git pull origin master
 ```
 
 ## License
