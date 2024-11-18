@@ -14,6 +14,14 @@ npm install
 node screenshot.js "https://example.com" "Your prompt here"
 ```
 
+## git commands
+```bash
+# Validate the new updates in the app folder
+git commit -m "Test push new script"
+# push from dev to git
+git push
+```
+
 ## License
 
 This project is licensed under the MIT License.
