@@ -1,15 +1,26 @@
 const puppeteer = require('puppeteer');
 const axios = require('axios');
 
+function delay(time) {
+   return new Promise(function(resolve) {
+       setTimeout(resolve, time)
+   });
+};
+
 const takeScreenshot = async (url) => {
     const browser = await puppeteer.launch({ executablePath: '/bin/chromium',
     args:['--no-sandbox','--disable-setuid-sandbox'],
     headless: true });
     const page = await browser.newPage();
-    await page.goto(url);
+    await page.setViewport({ width: 1000, height: 600 });
+    await page.goto(url,{timeout: 0});
+//    const element = await page.$('#div.h-full:nth-child(3)>div:nth-child(1)');
+//    await element.screenshot({ encoding:'base64' });
+//    await delay(2);
     const screenshot = await page.screenshot({ encoding: 'base64' });
     await browser.close();
-    return screenshot;
+//    return element;
+   return screenshot;
 };
 
 const sendToOpenAI = async (screenshot, prompt) => {
@@ -34,6 +45,7 @@ const sendToOpenAI = async (screenshot, prompt) => {
 const main = async (url, prompt) => {
     try {
         const screenshot = await takeScreenshot(url);
+	console.log(screenshot);
         //const response = await sendToOpenAI(screenshot, prompt);
         //console.log(JSON.stringify(response, null, 2));
     } catch (error) {
